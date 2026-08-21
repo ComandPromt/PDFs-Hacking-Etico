@@ -1,0 +1,334 @@
+
+THE HANDY DANDY ANALOGX PROXY SERVER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case you are unfamiliar with what a Proxy Server is (which is probably
+unlikely, since you downloaded this), what it basically allows you to do is
+share one internet connection with all the machines on your network.  For
+example; my main computer is the only one which has internet access, but I
+have several other machines on my local network.  By running the Proxy Server
+on the machine that has the internet connection (my main machine), and setting
+all the other machines to use a proxy, I can browse the web from them, just
+like I can from the machine actually connected.
+
+AnalogX Proxy is designed to be simple, small, and easy to use.  It currently
+only supports the following protocols:
+
+    HTTP    (web browsers)                  (port 6588)
+    HTTPS   (secure web browsers)           (port 6588)
+    SOCKS4  (TCP proxying)                  (port 1080)
+    SOCKS4a (TCP proxying w/ DNS lookups)   (port 1080)
+    SOCKS5  (only partial support, no UDP)  (port 1080)
+    NNTP    (usenet newsgroups)             (port 119)
+    POP3    (receiving email)               (port 110)
+    SMTP    (sending email)                 (port 25)
+    FTP     (file transfers)                (port 21)
+
+it does NOT work with ICQ, which really requires full Socks5 or a complicated
+mess of UDP port mapping - but AIM and MS Messenger both work fine.  Future
+versions will include more protocols, but for most people this shouldn't be
+a big deal.
+
+
+    :::Configuration:::
+All configuration is done through the 'Configure' menu... When in this menu the
+proxy is disabled (you'll notice the tray icon will be red), and when done, it
+will automatically start back up.
+
+
+    :::Configuring your local network:::
+In order to use this on your local network, you must be using TCP/IP as one of
+the methods the machines have to talk to each other (this can be found inside
+the Settings->Control Panel->Network, if you see TCP/IP, you're good to go).
+If for some reason it doesn't work, ie, the other machines can't see the Proxy,
+the most common problem is the IP addresses you have the network configured to.
+There are only a couple that are valid to use on a local network, I would
+recommend you use 10.0.0.x (where x is a number between 0 and 255 that will
+be specific to each machine).  Try changing the IP and then using the
+Proxy again.  Also, just because your machines can see each other, doesn't mean
+that TCP/IP is configured properly; if you are unsure of whether or not this
+is set up properly, do the following: Choose 'Run' from the start menu, and
+type 'ping [IP]', so if the other machine has the IP of '10.0.0.1', you would
+type 'ping 10.0.0.1'.  If the machines can see each other, this will say some-
+thing like 'Reply from...' blah blah blah; if they can NOT see each other, this
+will say something like 'Request timed out.'
+
+
+Unless you have your local IP address assigned to you, there are only three
+groups of IP's that are valid for you to use on a machine that's connected to
+the net (that won't collide with other machines).  They are:
+
+    10.0.0.0 to 10.255.255.255      (Class A)
+    172.16.0.0 to 172.31.255.255    (Class B)
+    192.168.0.0 to 192.168.255.255  (Class C)
+
+So make sure your LOCAL network IP's fall within one of these three ranges, or
+you're more than likely going to have problems.
+
+If you don't know your IP address, the simplest way to get it is to choose
+'Run' from the system menu, and type 'winipcfg'.  Make sure you do this when
+you are NOT connected to the internet, otherwise you will just end up getting
+your temporary internet IP address.  Another method, is to go into the network
+area (as outlined above), select TCP/IP, and it's in the IP Address Tab!
+
+If you don't have TCP configured, here's what I would recommend setting your
+local IP address's to; for the server, set it's IP to '10.0.0.1' and subnet
+mask to '255.255.255.0'.  Then, just increment the last number of the IP by
+one for each remote machine; so the next machine would be IP '10.0.0.2' and
+the subnet mask would remain '255.255.255.0'.  Then, on the remote machine
+you would configure the Internet Options (as mentioned above) to use the proxy
+server IP of '10.0.0.1' at port '6588'; and you're done!
+
+One more thing to note about the TCP configuration; once it's completed you'll
+have TWO TCP configs - one that's used for your internet connection (which you
+shouldn't have to change), and one that's used for communicating across your
+local network (the 10.0.0.1 example).  For some reason if you use Dialup
+networking, and ADD another TCP/IP protocol, Windows binds it to the modem, and
+there doesn't appear to be any easy way of changing this - if this happens to
+you, I normally recommend removing the dialup networking configuration, then add
+everything to get the local network going, then re-install the dialup networking
+configuration.
+
+
+    :::Configuring your browser:::
+If you use Internet Explorer, on each machine you want to be able to access the
+proxy on, just go into the Control Panel->Internet Options, and select the tab
+'Connections'.  You'll see a button called 'LAN Settings', just click on it, and
+you'll see the proxy settings.  For most systems, all you will need to do is
+check the 'Use a proxy server' box, enter the IP address of the machine the
+proxy server is running on (in the example above, this would be '10.0.0.1', and
+set the Port # to 6588.  Select 'Ok', launch your browser, and you should be
+good to go!
+
+If you use Netscape, go to the Edit->Preferences->Category->Advanced->Proxies->
+Manual->View, whew!  That's a long path!  Here you'll be able to input the IP
+and port address mentioned in the IE config process.
+
+
+    :::Configuring RealAudio:::
+RealAudio can be configured to work with AnalogX Proxy as well... With the G2
+version (or newer), just go into Preferences and select the 'Transport' tab.
+Then, select 'Use specified transport', and click on 'RTSP Settings' and 'RTA
+Settings' buttons; finally, set them both to 'Use HTTP Only'.  That's it!  Now
+RealAudio will stream via the Proxy!
+
+
+    :::Configuring Email:::
+Configuring Email is a little trickier, so make sure you have the web browser
+proxy working properly before doing this.  You now have two methods, one is to
+use the method described below, which can sometimes be a pain to get working,
+the other is to just use Socks4 and a client that either supports it, or works
+with Socksify (refer to the section below about Socks).
+
+If you want to try the normal method, open up the 'Configure' menu, and select
+'Configure Email Alias's'; you'll be presented with the email account
+configuration area.  Select 'Add' from the menu; this is where you will enter
+in the servers you check your email from... First, you need to enter the email
+address that people send messages to, like 'bob@domain.com'.  Next, you need to
+set the POP3 server, which is where your email program goes when it receives
+email; normally this will be something along the lines of  'pop3.domain.com' or
+'mail.domain.com'.  Finally, you need to set the SMTP server, which is what
+your emails are sent through, which in the above example could be something
+like 'smtp.domain.com'.  Now, it's important to note that not every service uses
+two different names for the server, you might check both POP3 and SMTP from
+the same server; in this case you can just leave the SMTP field blank.  That's
+it for the proxy!  Now you have added email support for this particular user.
+
+Now you need to set up the configuration of the email program you use; this
+varies from program to program, but you need to go to wherever you enter both
+the servers that the program checks.  Now, instead of entering 'mail.domain.com'
+or whatever your mailserver is, you'll enter the IP address of your proxy
+server, such as '10.0.0.1'.  It's important to note that you won't need to
+change the port settings in the email program, since the proxy uses the same
+ports a normal server would.  Also, you will set both the SMTP, as well as the
+POP3 servers to the same IP address; the proxy will make sure they get to the
+correct place.  Now, let's check out your configuration; try sending an email
+to yourself...  If everything is configured properly, they you should be good
+to go!
+
+One more thing to note about email; it will only support using a certain
+username once; for example, you can't have bill@homecomputer.com and
+bill@workcomputer.com; but you can have bill@homecomputer.com and sue@another.com.
+In most cases this shouldn't be a problem for users, since most people have
+different usernames for each account... The reason I decided to do it this way
+was to make it easier to configure email programs, but there's always a minus
+to each plus.
+
+One other note about email; if you have a different login name than email name
+(like you check mail by using the login name bill, but your email address is
+billyg@computer.com), then you'll need to create TWO alias in the email section;
+one just like normal, using billyg@computer.com, and one using the login name
+in place of the email name (so bill@computer.com).
+
+
+    :::Configuring News:::
+NNTP support is a breeze, just enter the news server you normally use in the
+config menu, and then just set up your newsreader to retrieve news from the
+proxy server's IP address; it's that simple!
+
+
+    :::Configuring FTP:::
+In order to use the FTP portion of AnalogX Proxy, you must use a dedicated FTP
+program, like CuteFTP (you can find all of the FTP clients for any platform on
+http://www.tucows.com/), and you MUST configure it to use a Proxy/Firewall.
+Also, somewhere in it's options (usually where you turn on the Proxy option),
+you'll have to select one more option, and that's Proxy Type... You'll want it
+to be something like this 'USER user@domain.com'; this sets the format of the
+request to AnalogX Proxy so it knows what you're trying to connect to.  Refer
+to your specific programs docs about how to configure it, but don't email me - I
+only use CuteFTP and Microsofts FTP, so I won't know how to configure yours.
+Also, this will NOT work with browsers, since they do not (currently) support
+proxying of FTP requests in the same manner.
+
+Proxy also supports the use of the OPEN command, so if your FTP client can be
+configured to issue 'OPEN domain.com' then the proxy will automatically route
+the connection through.
+
+
+    :::Configuring SOCKS4:::
+Socks4 is a protocol that allows other programs not specifically written to work
+with a proxy to work - *VERY* cool.  NEC (the main force behind Socks) has made
+a program called 'SocksCap' available for free here:
+
+    http://www.socks.nec.com/reference/sockscap.html
+
+It is the primary way you get non-proxy programs to work.  Just install it,
+configure it to point to the proxy's IP address (10.0.0.1 or whatever) at port
+1080, and then set it up to work with whatever programs you normally use.  Then,
+when you want to use them on your proxy'd machines, you simply launch them through
+this handy app, and it takes care of the rest; nice!
+
+Socks support has been tested and is known to work with AOL, AOL Instant
+Messenger, Microsoft Messenger, etc.  Please don't email me asking how to get
+ANY of these (or any other) programs working through Socks - I don't use any
+of these.  Also, please be aware that the Socks5 implementation is only partial,
+it support only TCP, not UDP.  This should be corrected by v5.0.
+
+
+    :::Configuring Proxy thru Proxy:::
+This version also supports Proxy through a Proxy support, for people who are
+using a provider (or another server) that you must browse through a Proxy.
+AnalogX Proxy should automatically detect this, and configure itself
+accordingly.  Keep in mind that for this to happen you must be using the Control
+Panel->Internet Options, and not the internal browser settings (as in how
+Netscape works).
+
+
+    :::Security:::
+By default the proxy binds to all TCP/IP interfaces on your computer - this is
+primarily to make it easy to get running, but it also means that it will service
+requests from the Internet as well.  You can force Proxy to only bind to your
+local IP address in the Configuration menu, at the 'Proxy Bind' option.  If this
+is set to 'disabled', then it will bind to all interfaces, but if a valid TCP/IP
+address is entered, the proxy will ONLY bind to that - so if you enter 10.0.0.1,
+and that's your server's IP address, then the proxy will only talk to machines
+that connect to that IP, in other words, only your local network.
+
+
+    :::The Dreaded RED icon:::
+If the proxy is unable to start one of it's protocols, then the icon on the
+lower right (in the system tray) will be red instead of it's normal happy shade
+of green.  If this happens, the easiest way to track this down is to go into
+the config and turn off EVERY protocol except HTTP, then exit the config and
+the icon should turn green.  Now, go back into the config and turn on the other
+protocols one at a time (exiting the config with each one you turn on) until it
+turns red again - now you've found the protocol it was unable to start.
+Normally this is either FTP, POP3, or SMTP; this means that there's already a
+server running on your system for one of these protocols, which could be an FTP
+server, an email checker, etc.  In order to use this functionality on the proxy,
+you'll need to shut down whatever program is causing the problem.  Another common
+cause of the Red Icon is if you have changed your proxy server's IP address, and
+not updated the Proxy Bind option in the configuration with the new address.
+
+
+    :::Configuring misc options:::
+The only other option you have is to either enable or disable logging of all
+the activity on the Proxy.  To do this, simply right-click on the Proxy icon on
+the task bar (by the clock, on the Start menu), and choose 'Logging'.  If there
+is a check by it, then it will log everything to a file called 'proxy.log' in
+the same directory as the executable.
+
+If you would like the Proxy program to automatically dial the net (and you're
+using dialup networking (ie, a modem)), then all you need to do is turn on the
+option to automatically connect to the internet in your dialup networking
+control panel.  When this is turned on, any time a client computer makes a
+request of the proxy, and it's not connected, it will dial up.  Conversely, you
+can configure the inactivity timeout to automatically have windows dialup
+networking hangup when to requests come in over a period of time.  I don't
+personally have dialup networking installed on my machine, so I can't give
+you any clearer information on how to do it.  AnalogX Proxy v5.0 should have
+imbedded support for dialing/disconnecting after certain idle periods, to
+help resolve these issues.
+
+
+    :::Ports ports ports!  Which is which?:::
+This is just to clear up one of the more common mistakes people make; when you
+set up the proxy, you will use port 6588 for HTTP/HTTPS, but the rest of the
+protocols are on their normal ports, which are listed above with the brief
+description of each protocol.
+
+    :::HTTPS, rules, and even more ports!:::
+HTTPS is what's called 'secure HTTP', and is what is used when you need to send
+secure data between servers (for example, when you buy something online and send
+your credit card number).  Proxy servers need to have a way to forward this data
+without actually understanding it, and so the powers that be added the CONNECT
+command to the proxy specifications.  Now, CONNECT is very powerful while at the
+same time being a bit dangerous, its flexibility means it gives you many more
+options for relaying data then you normally would, but if your proxy is running
+in an open state it gives those same powers to someone else who more than likely
+shouldn't have them.  To help address this, HTTPS has it's own set of rules that
+are stored in the file 'https-rules.txt' in the same directory as the proxy
+program itself.  The default rules are to allow everything EXCEPT port 25 which
+is used for sending mail - this is in case you are running in an open state, that
+you can't inadvertantly be used as a spam relay.  You can add or remove additional
+rules by simply putting them on a new line, listing the port and then the rule.
+For instance:
+
+        80:"Deny"
+
+will stop all web traffic running over HTTPS.  There is also one wildcard rule,
+which looks like this:
+
+	*:"Allow"
+
+which tells the proxy how to handle everything else - so if you only want it to
+forward ports you tell it, you could set the wildcard to Deny and then add all
+the ports you will use with the command Allow.
+
+
+    :::Everything is set up, so how do I run it?:::
+Nothing could be easier, simply doubleclick on the proxy icon, or select it from
+your Windows Start Menu... If it starts up, and the icon is green (on the system
+tray), then you're in business!  All the machines you have configured will be
+able to access the internet for as long as proxy's running.
+
+
+    :::What about [insert protocol/program here]?  When will it support it?:::
+Please please please please please don't email me asking when Proxy will support
+a particular problem, or when the next release will be available - it's very
+difficult to get things done when I need to answer the 1000th request for ICQ
+or some other program.  If you want to be kept informed of what's going on, new
+releases, etc, then make sure to subscribe to the listserver at:
+
+    http://www.analogx.com/contents/listserv.htm
+
+I send out an email once a week detailing whatever is going on, plus everyone
+on the list gets access to beta copies, etc.
+
+
+    :::Special note for Windows95 users:::
+If you're running Windows95, then you need to install ALL of the updates related
+to dialup networking, TCP/IP, and Winsock 1 and 2, otherwise the program will not
+run properly.  You can find these files on Microsoft in their OS updates section.
+
+
+    :::Thanks:::
+I'd like to thank everyone who helped test, especially everyone on the ListServer,
+who got a copy early and put it through it's paces!  Extra special thanks go to
+Son Huynh, Marc Gantz, and Bruce Stickley - I couldn't have done it without
+everyone's help!
+
+For more info, and some cool music, make sure to check out the website at:
+
+http://www.analogx.com/
+

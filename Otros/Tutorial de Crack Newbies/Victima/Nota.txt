@@ -1,0 +1,2 @@
+Nota: Si al desensamblar este archivo el wdasm no lo abre, intenta a cambiarlo de directorio.
+Pegalo en el escritorio y usalo desde ahi.

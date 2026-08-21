@@ -1,0 +1,181 @@
+___    |_|  _____    _____  |_|  ______   _     _   ______   ____    |_|  ______
+|  \    _  / ____|  / ____|  _  /  __  \ | \   | | |   _  | |  _ |    _  /  __  \
+|   \  | | | |      | |     | | | |  | | |  \  | | |  | | | | |_||   | | | |  | |
+| |> | | | | |      | |     | | | |  | | |   \ | | |  |_| | |    |   | | | |  | |
+|   /  | | | |___   | |___  | | | |__| | | |\ \| | |  __  | | |\ \   | | | |__| |
+|__/   |_| \_____|  \_____| |_| \______/ |_| \___| |_|  |_| |_| \_\  |_| \______/
+
+Mas informacion en http://hg.hypermart.net
+Este diccionario sera actualizado periodicamente. El mismo puede ser encontrado en:
+http://hg.hypermart.net/textos/dixionario.txt
+Ni el autor ni el grupo de este texto se hacen kargo por lo ke hagas kon esta informacion. EL fin
+de esta guia es de edukacion.
+			      _      _      _      _
+			|_|  /_\ |/ |_ |>  /_  |> | | \    /
+			| |  | | |\ |_ |\  \_| |\ |_|  \/\/ 
+
+© Copyright HaKeR GRoW. La distribucion es gratuita pero hay que dejar la URL.
+
+ACCESO ROOT:
+	Entrar en un sistema kon el usuario root.
+
+ACOPLADOR ACUSTICO:
+	Un aparato ke consiste de dos tazas montadas sobre una base, en las ke uno inserta
+	un telefono. El acoplador acustico esta conectado a un modem ke envia sus señales
+	a traves del microfono del auricular, y recibe señales a traves del parlante. Util
+	para hackeo fuera de kasa, desde kabinas telefonicas y makinas publicas de fax.
+
+ADMINISTRADOR, SYSOP, ROOT:
+	Persona ke se encarga del manten¡m¡ento del s¡stema. T¡ene acceso total, s¡n
+	restr¡cc¡ones. Cuando hackeamos ¡ntentamos tener acceso de root, para poder tener acceso
+	a todos los usuar¡os.
+
+AMPLIFICADOR:
+	Aparato para aumentar la amplitud de una señal sin alterar su calidad.
+
+ANARKIA:
+	Ademas de los signifikados oskuros, komo kaos o lio, la anarkia es una rama del
+	pensamiento cyberpunk o hacker. Konsiste en la lucha contra la sociedad. Generalmente
+	los textos sobre anarkia son sobre explosivos, armas, tecnicas de lucha, etc.
+
+BUG, HOLE, AGUJERO:
+	Un bug es un defecto en el software ke permite ke un hacker penetre al sistema.
+	TODOS los sistemas y programas tienen bugs.
+
+
+BACKDOOR:
+	Puerta tracera, mecanismo en el software ke permite entrar evitando el metodo normal.
+
+BOMBAS ANSI:
+	Utilizando los codigos ansi, se asigna una accion destructiva a alguna tecla.
+	Me explico, ansi es un conjunto de codigos estandar. Si en tu komputadora uno de 
+	estos codigos lo ejecutara. Los codigos ansi se usan para varias kosas, entre ellas,
+	cambiar los colores de la pantalla, posicionar el cursos, y el metodo ke usan las
+	bombas ansi, asignar a una tekla una accion determinada. Si esta accion es danina
+	al pulsarla hara el daño.
+
+BOXING:
+	Uso de aparatos electronicos o electricos (boxes) para hacer phreaking. A los boxes
+	se les asignan nombre por kolores y kada uno tiene distintas funciones. Para darte
+	una idea de kuantos boxes hay, piensa en todos los kolores ke existan y luego despues
+	del nombre de kada box ponle un "box". El box mas famoso es el "blue box" que sirve
+	para realizar llamadas sin pagarlas.
+
+C:
+	Lenguaje de programacion muy bueno. Con el se hizo Unix y con el se fabrican los juegos.
+
+C++:
+	Primo del lenguaje C.
+
+CABALLO DE TROYA:
+	Programa ke aparenta tener una utilidad mientras tiene otra. Generalmente son instalados
+	en komputadoras ajenas para ke el hacker ke lo instalo pueda desde obtener informacion
+	sobre lo ke ocurre en el sistema hasta realizar operaciones desde el. Algunos troyanos
+	muy conocidos son el BaCK oRiFFiCe y el NeTBuS.
+
+CARDING:
+	Uso ilegitimo de las tarjetas de credito, o sus numeros, pertenecientes a otras personas.
+	Se relaciona mucho con el hacking por ke mediante el se consiguen los numeros de las
+	tarjetas.
+
+CRACKER:
+	Persona ke elimina las protecciones logicas y a veces fisicas del software. Hacker ke
+	destruye lo ke hackea. Los crackers son repudiados por la sociedad hacker ya ke son ellos
+	kienes hacen ke la sociedad repudie a los hackers.
+
+CRACKEADOR:
+	Programa ke sirve para sacar los passwords encriptados de los archivos passwd. Puede ser
+	desencriptandolo (en los casos posibles) o provando convinaciones de un diccionario hasta
+	lograr la correcta.
+
+CYBERPUNK:
+	Es un tipo de ideologia o de subcultura. Se basa en el culto a la tecnologia, a la
+	ciencia, y el odio a kualkier forma de poder organizado. Igual ke en el kaso de la
+	anarkia, se usa en muchas ocaciones kon kriterios ekivokados, produciendo una mala
+	imagen de este grupo. Tambien tiene una importante relacion kon el mundo hacker.
+
+CORTAFUEGO, FIREWALL, BASTION:
+	Sistema avanzado de seguridad ke impide a personas no akreditadas al acceso del sistema.
+
+DICCIONARIO:
+	Listado de palabras utilizado por los crackeadores de passwords. Estos toman el
+	diccionario y el fichero passwd y cada palabra del diccionario es encriptada y comparada
+	kon el password enkriptado del fichero passwd.
+
+FICHERO PASSWD:
+	Fichero en el ke sistema guarda las contraseñas, los nombre de usuarios y otra
+	informacion. Kuando intentamos hackear intentamos obtener este archivo no solo para
+	obtener acceso root sino para konocer las contraseñas ke los otros usuarios utilizan
+	y asi poder tener acceso en kuentas de otras komputadoras, servicios, etc.
+
+FTP:
+	(File Transfer Protocol: Protocolo de transferencias de archivos) Un conjunto de
+	protocolos mediante el cual pueden tranferirse archivos de una computadora a otra.
+	FTP es tambien el nombre de un programa ke usa los protocolos para tranferir archivos
+	de ida y vuelta entre computadoras.
+
+FTP ANONIMO:
+	Poder acceder a una computadora mediante el protocolo FTP.
+
+GUSANO:
+	Un programa cuyo proposito es reproducirse. Un gusano se copiara a si mismo infinitamente
+	en multiples directorios y en kualkier disco disponible.
+
+HACKER:
+	Persona de mente inkieta, muy habil kon las komputadoras. La sociedad cree ke los hackers
+	son gente kon malos habitos y ke obtiene diversion rompiendo el trabajo de otros
+	(confundiendolos con crackers).
+
+KEY LOGGER:
+	Grabador de teclas pulsadas. Se utiliza para kuando deseamos saber las contraseñas, este
+	programa graba cuando el usuario ingresa su contraseña. Tambien se utiliza para saber
+	cuales han sido las acciones de los usuarios en el sistema.
+
+LOG:
+	El registro ke se guarda de una actividad de computacion; puede estar impreso o
+	almacenado en un disco. A los operadores de sistemas les gusta leer sus registros
+	para dar kon rastros de aktividad hacker. Si encuentras uno ke datelle tus hazañas,
+	elimina todas las partes incriminatorias.
+
+LOG-IN:
+	Obtener acceso a una computadora, por lo comun ingresando el nombre de usuario y la
+	contraseña.
+
+PHREAK:
+	Uso del telefono, o de las redes y servicios telefonicos, gratis o con un coste
+	menor del normal. Devido al uso intensivo del telefono por parte de los hackers,
+	es bastante normal ke usen el phreaking para ahorrarse unos $$$.
+
+PIRATA:
+	Persona dedicada a la copia y distribucion de software ilegal, tanto software
+	comercial crackeado, como shareware registrado.
+
+POLIS:
+	Policias.
+
+ROOT:
+	La cuenta de supervisor, el nivel maximo de una estructura jerarkika mas alto de un
+	arbol. Para los propositos de hackeo hablamos sobre el aspecto de superusuario.
+	Kon frecuencia la meta del hacker es obtener un acceso al usuario root.
+
+SEÑAL ANALOGICA:
+	Una salida ke cambia en proporcion kon los cambios de la entrada ke produce.
+
+SER CAZADO:
+	Termino ke se refiere a no ser atrapado por los polis o no ser descubierto.
+
+SNIFFER:
+	Programa enkargado de interceptar la informacion ke circula por la red.
+
+WAR DIALER:
+	Programa ke escanea la linea telefonica en busca de modems.
+
+ZAPPER:
+	Programa ke se encarga de borrar los logs que graban las entradas, acciones y salidas
+	de usuarios, por ejemplo kuando un hacker entra en un sistema debe ejecutar un zapper
+	para no se cazado.
+
+~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°~°
+KERES SER UN VERDADERO HAKER Y UNIRTE AL MEJOR GRUPO DE HACKEO DE ARGENTINA????
+
+VISITA NUESTRA PAGINA EN HTTP://HG.HYPERMART.NET
